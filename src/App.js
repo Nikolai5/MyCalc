@@ -55,6 +55,16 @@ class App extends Component {
             });
         }
 
+        if(type === 3){
+            this.setState({
+                total: 0,
+                operator: '',
+                firstOperand: '',
+                secondOperand: '',
+                firstOp: true
+            });
+        }
+
         if(type === 4){
             let total = this.calculateTotal(this.state.firstOperand, this.state.secondOperand, this.state.operator);
 

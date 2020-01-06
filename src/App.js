@@ -24,8 +24,6 @@ class App extends Component {
             '/': (num1, num2) => parseInt(num1) / parseInt(num2)
         };
 
-        console.log('Operation: ' + operation);
-
         return calc[operation](num1, num2);
     }
 
@@ -36,12 +34,12 @@ class App extends Component {
             this.setState({secondOperand: this.state.secondOperand + option});
         }
 
-        if(type === 2 && this.state.firstOp){
+        if(type === 2 && this.state.firstOp && this.state.firstOperand !== ''){
             this.setState({
                 operator: option,
                 firstOp: false
             });
-        }else if(type === 2 && !this.state.firstOp){
+        }else if(type === 2 && !this.state.firstOp && this.state.secondOperand !== ''){
             let num1 = this.state.firstOperand;
             let num2 = this.state.secondOperand;
             let operation = this.state.operator;
@@ -65,7 +63,7 @@ class App extends Component {
             });
         }
 
-        if(type === 4){
+        if(type === 4 && !this.state.firstOp && this.state.secondOperand !== ''){
             let total = this.calculateTotal(this.state.firstOperand, this.state.secondOperand, this.state.operator);
 
             this.setState({
@@ -99,16 +97,16 @@ class App extends Component {
                     </div>
                     <div className="calcButtons">
                         <div className="numbers">
-                            <button onClick={(e) => this.addToBuffer(e, 1, '0')}>0</button>
-                            <button onClick={(e) => this.addToBuffer(e, 1, '1')}>1</button>
-                            <button onClick={(e) => this.addToBuffer(e, 1, '2')}>2</button>
-                            <button onClick={(e) => this.addToBuffer(e, 1, '3')}>3</button>
-                            <button onClick={(e) => this.addToBuffer(e, 1, '4')}>4</button>
-                            <button onClick={(e) => this.addToBuffer(e, 1, '5')}>5</button>
-                            <button onClick={(e) => this.addToBuffer(e, 1, '6')}>6</button>
                             <button onClick={(e) => this.addToBuffer(e, 1, '7')}>7</button>
                             <button onClick={(e) => this.addToBuffer(e, 1, '8')}>8</button>
                             <button onClick={(e) => this.addToBuffer(e, 1, '9')}>9</button>
+                            <button onClick={(e) => this.addToBuffer(e, 1, '4')}>4</button>
+                            <button onClick={(e) => this.addToBuffer(e, 1, '5')}>5</button>
+                            <button onClick={(e) => this.addToBuffer(e, 1, '6')}>6</button>
+                            <button onClick={(e) => this.addToBuffer(e, 1, '1')}>1</button>
+                            <button onClick={(e) => this.addToBuffer(e, 1, '2')}>2</button>
+                            <button onClick={(e) => this.addToBuffer(e, 1, '3')}>3</button>
+                            <button onClick={(e) => this.addToBuffer(e, 1, '0')}>0</button>
                         </div>
                         <div className="operators">
                             <button onClick={(e) => this.addToBuffer(e, 3, 'AC')}>AC</button>

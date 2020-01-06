@@ -18,12 +18,14 @@ class App extends Component {
 
     calculateTotal = (num1, num2, operation) => {
         let calc = {
-            '+': (num1, num2) => {return parseInt(num1) + parseInt(num2)},
-            '-': (num1, num2) => {return parseInt(num1) - parseInt(num2)},
-            '*': (num1, num2) => {return parseInt(num1) * parseInt(num2)},
-            '/': (num1, num2) => {return parseInt(num1) / parseInt(num2)}
+            '+': (num1, num2) => parseInt(num1) + parseInt(num2),
+            '-': (num1, num2) => parseInt(num1) - parseInt(num2),
+            '*': (num1, num2) => parseInt(num1) * parseInt(num2),
+            '/': (num1, num2) => parseInt(num1) / parseInt(num2)
         };
-        console.log(operation);
+
+        console.log('Operation: ' + operation);
+
         return calc[operation](num1, num2);
     }
 
@@ -48,8 +50,20 @@ class App extends Component {
             this.setState({
                 firstOperand: total,
                 secondOperand: '',
-                operator: this.operator,
-                total: total
+                total: total,
+                operator: option
+            });
+        }
+
+        if(type === 4){
+            let total = this.calculateTotal(this.state.firstOperand, this.state.secondOperand, this.state.operator);
+
+            this.setState({
+                total: total,
+                firstOperand: total,
+                firstOp: true,
+                secondOperand: '',
+                operator: ''
             });
         }
     }
@@ -68,7 +82,10 @@ class App extends Component {
                 </header>
                 <div className="calcContainer">
                     <div className="displayBox">
-                        <p>{this.state.total}</p>
+                        <p>> {this.state.firstOperand}</p>
+                        <p>> {this.state.operator}</p>
+                        <p>> {this.state.secondOperand}</p>
+                        <p>Total: {this.state.total}</p>
                     </div>
                     <div className="calcButtons">
                         <div className="numbers">

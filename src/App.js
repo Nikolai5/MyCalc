@@ -18,10 +18,10 @@ class App extends Component {
 
     calculateTotal = (num1, num2, operation) => {
         let calc = {
-            '+': (num1, num2) => parseInt(num1) + parseInt(num2),
-            '-': (num1, num2) => parseInt(num1) - parseInt(num2),
-            '*': (num1, num2) => parseInt(num1) * parseInt(num2),
-            '/': (num1, num2) => parseInt(num1) / parseInt(num2)
+            '+': (num1, num2) => parseFloat(num1) + parseFloat(num2),
+            '-': (num1, num2) => parseFloat(num1) - parseFloat(num2),
+            '*': (num1, num2) => parseFloat(num1) * parseFloat(num2),
+            '/': (num1, num2) => parseFloat(num1) / parseFloat(num2)
         };
 
         return calc[operation](num1, num2);
@@ -107,6 +107,7 @@ class App extends Component {
                             <button onClick={(e) => this.addToBuffer(e, 1, '2')}>2</button>
                             <button onClick={(e) => this.addToBuffer(e, 1, '3')}>3</button>
                             <button onClick={(e) => this.addToBuffer(e, 1, '0')}>0</button>
+                            <button onClick={(e) => this.addToBuffer(e, 1, '.')}>.</button>
                         </div>
                         <div className="operators">
                             <button onClick={(e) => this.addToBuffer(e, 3, 'AC')}>AC</button>

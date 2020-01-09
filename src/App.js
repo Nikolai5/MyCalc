@@ -110,10 +110,10 @@ class App extends Component {
                             <button onClick={(e) => this.addToBuffer(e, 1, '.')}>.</button>
                         </div>
                         <div className="operators">
-                            <button onClick={(e) => this.addToBuffer(e, 3, 'AC')}>AC</button>
                             <button onClick={(e) => this.addToBuffer(e, 2, '+')}>+</button>
                             <button onClick={(e) => this.addToBuffer(e, 2, '-')}>-</button>
                             <button onClick={(e) => this.addToBuffer(e, 2, '*')}>*</button>
+                            <button onClick={(e) => this.addToBuffer(e, 3, 'AC')}>AC</button>
                             <button onClick={(e) => this.addToBuffer(e, 2, '/')}>/</button>
                             <button onClick={(e) => this.addToBuffer(e, 4, '=')}>=</button>
                         </div>

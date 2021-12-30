@@ -51,6 +51,10 @@ class App extends Component {
                 total: total,
                 operator: option
             });
+        }else if(type === 2 && this.state.secondOperand === '' && this.state.operator !== ''){
+            this.setState({
+                operator: option
+            });
         }
 
         if(type === 3){

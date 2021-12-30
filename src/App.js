@@ -90,9 +90,9 @@ class App extends Component {
                 </header>
                 <div className="calcContainer">
                     <div className="displayBox">
-                        <p>> {this.state.firstOperand}</p>
-                        <p>> {this.state.operator}</p>
-                        <p>> {this.state.secondOperand}</p>
+                        <p>&gt; {this.state.firstOperand}</p>
+                        <p>&gt; {this.state.operator}</p>
+                        <p>&gt; {this.state.secondOperand}</p>
                         <p>Total: {this.state.total}</p>
                     </div>
                     <div className="calcButtons">
